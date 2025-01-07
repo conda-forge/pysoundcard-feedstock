@@ -6,20 +6,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/s/soundcard/SoundCard-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/s/soundcard/SoundCard-{{ version }}.tar.gz
   sha256: 410835514ba10809803cb9887d4270f392b59eaf365915bb94516af3f8b1d037
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
   noarch: python
 
 requirements:
   host:
-    - python >=3.5
+    - python {{ python_min }}
     - pip
+    - setuptools
   run:
-    - python >=3.5
+    - python >={{ python_min }}
     - __linux     # [linux]
     - __osx       # [osx]
     - __win       # [win]
@@ -34,6 +35,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/bastibe/SoundCard
