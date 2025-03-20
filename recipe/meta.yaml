@@ -1,17 +1,17 @@
 {% set name = "pysoundcard" %}
-{% set version = "0.4.3" %}
+{% set version = "0.4.4" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/s/soundcard/SoundCard-{{ version }}.tar.gz
-  sha256: 410835514ba10809803cb9887d4270f392b59eaf365915bb94516af3f8b1d037
+  url: https://pypi.org/packages/source/s/soundcard/soundcard-{{ version }}.tar.gz
+  sha256: 87df9c4b8ec97585fe440a1d9dbafabcece58eae5857ed005e6bb385b2179cff
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
   noarch: python
 
 requirements:
@@ -26,7 +26,7 @@ requirements:
     - __win       # [win]
     - pulseaudio  # [linux]
     - numpy
-    - cffi
+    - cffi >=0.6
 
 test:
   imports:
