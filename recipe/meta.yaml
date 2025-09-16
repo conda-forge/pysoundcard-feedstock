@@ -1,5 +1,5 @@
 {% set name = "pysoundcard" %}
-{% set version = "0.4.4" %}
+{% set version = "0.4.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/s/soundcard/soundcard-{{ version }}.tar.gz
-  sha256: 87df9c4b8ec97585fe440a1d9dbafabcece58eae5857ed005e6bb385b2179cff
+  sha256: 07272ba927e32cafdf634e4a1ca53b9a3218321a60c7d2e08f54b832a56946aa
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
