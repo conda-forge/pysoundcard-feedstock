@@ -40,7 +40,9 @@ tests:
       imports:
         - soundcard
       pip_check: true
-      python_version: ${{ python_min }}
+      python_version:
+        - ${{ python_min }}
+        - "*"
 
 about:
   summary: Play and record audio without resorting to CPython extensions
